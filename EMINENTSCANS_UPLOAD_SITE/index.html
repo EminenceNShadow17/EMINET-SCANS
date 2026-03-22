@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EMINENTSCANS</title>
+<style>
+body{margin:0;background:#0b0b0f;color:white;font-family:Arial}
+header{background:#111;padding:15px;display:flex;justify-content:space-between}
+.logo{font-size:26px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:20px;padding:40px}
+.card{background:#141418;border-radius:8px;padding:10px;text-align:center}
+a{color:white;text-decoration:none}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">EMINENTSCANS</div>
+<a href="admin.html">Upload</a>
+</header>
+
+<div class="grid" id="grid"></div>
+
+<script>
+let data = JSON.parse(localStorage.getItem("manga") || "[]")
+let grid = document.getElementById("grid")
+
+data.forEach(m=>{
+let div = document.createElement("div")
+div.className="card"
+div.innerHTML = `<h3>${m.title}</h3><a href="reader.html?name=${m.title}">Read</a>`
+grid.appendChild(div)
+})
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Upload</title>
+<style>
+body{background:#0b0b0f;color:white;font-family:Arial;text-align:center}
+input{margin:10px;padding:10px}
+button{padding:10px}
+</style>
+</head>
+
+<body>
+
+<h1>Upload Manga</h1>
+
+<input id="title" placeholder="Manga Title"><br>
+<button onclick="upload()">Upload</button>
+
+<script>
+function upload(){
+let title = document.getElementById("title").value
+let data = JSON.parse(localStorage.getItem("manga") || "[]")
+data.push({title:title})
+localStorage.setItem("manga", JSON.stringify(data))
+alert("Uploaded! Go back to homepage")
+}
+</script>
+
+</body>
+</html>
